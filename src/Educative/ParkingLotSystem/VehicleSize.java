@@ -1,2 +1,5 @@
-package Educative.ParkingLotSystem;public enum VehicleSize {
+package Educative.ParkingLotSystem;
+
+public enum VehicleSize {
+    SMALL, MEDIUM,LARGE;
 }

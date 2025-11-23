@@ -1,5 +1,8 @@
 package Educative;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class StringReverse {
     public static void main(String[] args) {
         String str="hello";
@@ -7,6 +10,19 @@ public class StringReverse {
         System.out.println(stringReverse(str));
         String str2= "madam";
         System.out.println(isPallindrome("str"));
+
+        String str3 = "AarthaKapoor@gmail.com";
+      //  System.out.println(str.substring(str3.indexOf('@'),1));
+        System.out.println(extractDomain(str3));
+
+        String str4 = "hello this is my country";
+       // System.out.println(str4.trim().split("\\s+").length);
+        System.out.println(str4.trim().split("\\s+").length);
+
+        String input = "key1=value1;key2=value2;key3=value3";
+        //output ={key1-> value1,key2 -> value2,key3 -> value3}
+
+        System.out.println(parseKeyValuePairs(input));
 
     }
 
@@ -59,4 +75,25 @@ public class StringReverse {
         }
         return new String(charStr);
     }
+
+     public static String extractDomain(String email)
+     {
+         return email.substring(email.indexOf('@'),22);
+     }
+
+     public static Map<String,String> parseKeyValuePairs(String input)
+     {
+         //input = {"key1=value1;key2=value2;key3=value3"}
+         //output ={key1-> value1,key2 -> value2,key3 -> value3}
+         Map<String,String> map = new HashMap<>();
+         for (String pair:input.split(";")) {
+             String[] keyvaluepair=pair.split("=");
+             map.put(keyvaluepair[0],keyvaluepair[1] );
+
+
+         }
+         return map;
+     }
+
+
 }
