@@ -1,9 +1,18 @@
 package ReBirth;
 
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
+import javax.sound.sampled.SourceDataLine;
 
 public class top100 {
 
@@ -19,7 +28,7 @@ public class top100 {
       return reverse;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         int n;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number");
@@ -28,7 +37,11 @@ public class top100 {
         //continueBreak(n);
         //2writeAllAlphabet();
         primeNumbers(n);
-        factorialUsingRecursion(5);
+       // factorialUsingRecursion(5);
+        createHashTable();
+        stringToDate("22/03/21");
+        createList();
+        LinkedList();
         
     }
 
@@ -195,14 +208,72 @@ public class top100 {
         validateage(age);
     }
 
-    public static int factorialUsingRecursion(int n)
+    // public static int factorialUsingRecursion(int n)
+    // {
+    //     if(n==1)
+    //     {
+    //         return 1;
+    //     }else
+    //         return factorialUsingRecursion(n*factorialUsingRecursion(-1));
+    // }
+
+
+    public static void createHashTable()
     {
-        if(n==1)
+        Hashtable<Integer,String> hashtable = new Hashtable<Integer,String>();
+        hashtable.put(1,"Aartha" );
+        hashtable.put(2, "Taani");
+        hashtable.put(3, "Mumma");
+
+        for(Map.Entry m:hashtable.entrySet())
         {
-            return 1;
-        }else
-            return factorialUsingRecursion(n*factorialUsingRecursion(-1));
+            System.out.println(m.getKey()+""+m.getValue());
+        }
     }
 
-    
+    public static void stringToDate(String date) throws Exception
+    {
+        date = "31/02/11";
+        SimpleDateFormat format = new SimpleDateFormat("DD/MM/YYYY");
+        Date date1 =  format.parse(date);
+        System.out.println(date1);
+        
+    }
+
+    public static void createList()
+    {
+        List<String> list = new ArrayList<>();
+        list.add("Aartha");
+        list.add("Koyla");
+        list.add("Mumma");
+        list.add("Papa");
+
+        Iterator it = list.iterator();
+        while (it.hasNext()) {
+           System.out.println(it.next());
+            
+        }
+
+        for(String str:list)
+        {
+            System.out.println("here printing thrown the for each :" +str);
+        }
+    }
+
+    public static void LinkedList()
+    {
+        LinkedList<String> list = new LinkedList<>();
+        list.add("Hero");
+        list.add("worldHero");
+        list.add("wonderWoman");
+
+        Iterator it = list.iterator();
+
+        while(it.hasNext()){
+            System.out.println("LinkedList elements are: "+it.next());
+        }
+
+    }
 }
+
+
